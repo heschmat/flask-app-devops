@@ -1,0 +1,24 @@
+flaskApp:
+  image: "717546795560.dkr.ecr.us-east-1.amazonaws.com/flask-app-ecr:v1"
+  replicas: 1
+  port: 5000
+  nodePort: 32123
+
+config:
+  DB_HOST: postgres
+  DB_PORT: "5432"
+  DB_NAME: mydatabase
+  POSTGRES_DB: mydatabase
+  PGDATA: /var/lib/postgresql/data/pgdata
+
+secrets:
+  DB_USERNAME: myuser
+  DB_PASSWORD: mypass
+  POSTGRES_USER: myuser
+  POSTGRES_PASSWORD: mypass
+
+postgres:
+  image: "postgres:15"
+  storageClass: ebs-sc
+  storageSize: 5Gi
+
