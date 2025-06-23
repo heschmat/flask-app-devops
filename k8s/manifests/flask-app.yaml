@@ -12,10 +12,10 @@ spec:
       labels:
         app: flask-app
     spec:
-      #serviceAccountName: argocd-image-access
+      serviceAccountName: argocd-image-access
       containers:
       - name: flask-app
-        image: 717546795560.dkr.ecr.us-east-1.amazonaws.com/flask-app-ecr:v1
+        image: 717546795560.dkr.ecr.us-east-1.amazonaws.com/flask-app-ecr:v2
         ports:
         - containerPort: 5000
         envFrom:

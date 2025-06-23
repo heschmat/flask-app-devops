@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flask-pg-eks
+  namespace: argocd  # This is the namespace Argo CD is installed in
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/gesatessa/flask-pg-eks.git
+    targetRevision: main  # Or whatever branch/tag you want to track
+    path: k8s/manifests
+
+  destination:
+    server: https://kubernetes.default.svc  # Use this if deploying to same cluster as Argo CD
+    namespace: default  # Target namespace to deploy to
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true  # optional: only needed if deploying to a new namespace
