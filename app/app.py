@@ -16,7 +16,7 @@ next_checkin_time = datetime.utcnow()
 
 @app.route("/health_check")
 def health_check():
-    return "OK!!!"
+    return "OK!!!!!"
 
 
 @app.route("/readiness_check")
