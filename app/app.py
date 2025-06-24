@@ -1,5 +1,4 @@
 import os
-import time
 from datetime import datetime, timedelta
 from random import randint
 
@@ -119,7 +118,8 @@ def simulate_checkin():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(simulate_checkin, 'interval', seconds=30)  # Runs every 30s but may skip if cooldown
+# Runs every 30s but may skip if cooldown
+scheduler.add_job(simulate_checkin, 'interval', seconds=30)
 scheduler.start()
 
 
