@@ -15,7 +15,7 @@ spec:
       serviceAccountName: argocd-image-access
       containers:
       - name: flask-app
-        image: 717546795560.dkr.ecr.us-east-1.amazonaws.com/flask-app-ecr:f84e1bb5627e5f8b35cc14d96b6ea30a51ccab66
+        image: 717546795560.dkr.ecr.us-east-1.amazonaws.com/flask-app-ecr:76d6da47a6b8e2a0a9a32081a3f6c9e05066a9d4
         ports:
         - containerPort: 5000
         envFrom:
