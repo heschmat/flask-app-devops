@@ -9,7 +9,7 @@ managedNodeGroups:
   - name: flask-app-node
     instanceType: t3.small
     desiredCapacity: 2
-    minSize: 2
-    maxSize: 4
-    volumeSize: 10
+    minSize: 1
+    maxSize: 3
+    volumeSize: 20 #min size
     spot: true

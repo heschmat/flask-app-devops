@@ -3,14 +3,11 @@
 set -euo pipefail
 
 # === CONFIGURATION ===
-CLUSTER_NAME="flask-app"
-NAMESPACE="default"
-SERVICE_ACCOUNT_NAME="argocd-image-access"
-IAM_ROLE_NAME="ArgoCDECRRole"
-POLICY_NAME="ECRAccessPolicy"
+source "$(dirname "$0")/irsa-config.sh"
 
 # === GET AWS ACCOUNT ID ===
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+echo "AWS ACCOUNT ID: $AWS_ACCOUNT_ID"
 
 # === GET OIDC PROVIDER ===
 OIDC_ISSUER_URL=$(aws eks describe-cluster --name "$CLUSTER_NAME" \
